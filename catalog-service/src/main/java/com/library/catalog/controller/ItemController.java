@@ -25,17 +25,20 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    //POST item
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ItemResponse createItem(@Valid @RequestBody ItemRequest request) {
         return itemService.createItem(request);
     }
 
+    //GET item
     @GetMapping("/{id}")
     public ItemResponse getItem(@PathVariable UUID id) {
         return itemService.getItem(id);
     }
 
+    //GET all items
     @GetMapping
     public Page<ItemResponse> getAllItems(
             @RequestParam(required = false) String title,
@@ -46,6 +49,7 @@ public class ItemController {
         return itemService.getAllItems(pageable);
     }
 
+    //PUT item
     @PutMapping("/{id}")
     public ItemResponse updateItem(
             @PathVariable UUID id,
@@ -53,6 +57,7 @@ public class ItemController {
         return itemService.updateItem(id, request);
     }
 
+    //DELETE item
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteItem(@PathVariable UUID id) {

@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.UUID;
 
+//Defines the search options for finding specific Item Copies
+//TODO: implement Item ID Search for copies
+//TODO: Implement ID and status search for copies
 @Repository
 public interface ItemCopyRepository extends JpaRepository<ItemCopy, UUID> {
 

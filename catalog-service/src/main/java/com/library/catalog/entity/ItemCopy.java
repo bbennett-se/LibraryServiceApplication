@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+//Defines the Item Copy Class
 @Entity
 @Table(name = "item_copies")
 @Getter
@@ -17,7 +18,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class ItemCopy {
 
     @Id

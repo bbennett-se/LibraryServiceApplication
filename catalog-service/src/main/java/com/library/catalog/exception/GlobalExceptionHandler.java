@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+//Maps out how Exceptions will be displayed within the log
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

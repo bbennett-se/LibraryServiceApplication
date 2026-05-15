@@ -18,6 +18,7 @@ import java.util.UUID;
 public class ItemService {
     private final ItemRepository itemRepository;
 
+    //creates a new item within the database based on a request
     public ItemResponse createItem(ItemRequest request) {
         Item item = Item.builder()
                 .title(request.getTitle())
@@ -32,6 +33,7 @@ public class ItemService {
         return toResponse(saved);
     }
 
+    //retrieves an item from the database based on it's UUID
     @Transactional(readOnly = true)
     public ItemResponse getItem(UUID id) {
         Item item = itemRepository.findById(id)
@@ -39,18 +41,21 @@ public class ItemService {
         return toResponse(item);
     }
 
+    //returns all items currently within the database
     @Transactional(readOnly = true)
     public Page<ItemResponse> getAllItems(Pageable pageable) {
         return itemRepository.findAll(pageable).map(this::toResponse);
 
     }
 
+    //Retrieves item from the database based on it's title
     @Transactional(readOnly = true)
     public Page<ItemResponse> searchByTitle(String title, Pageable pageable)  {
         return itemRepository.findByTitleContainingIgnoreCase(title, pageable)
                 .map(this::toResponse);
     }
 
+    //updates the current information of an item, found via its UUID, based on a request
     public ItemResponse updateItem(UUID id, ItemRequest request) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Item not found: " + id));
@@ -66,6 +71,7 @@ public class ItemService {
         return toResponse(updated);
     }
 
+    //Deletes an item from the database
     public void deleteItem(UUID id) {
         if (!itemRepository.existsById(id)) {
             throw new ItemNotFoundException("item not found: " + id);
@@ -73,6 +79,7 @@ public class ItemService {
         itemRepository.deleteById(id);
     }
 
+    //builds a response for the controller
     private ItemResponse toResponse(Item item) {
         return ItemResponse.builder()
                 .id(item.getId())

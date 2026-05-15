@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
+//defines different methods that can be used to search for Items
+//TODO: Implement Author Search
+//TODO: Implement Genre Search
 @Repository
 public interface ItemRepository extends JpaRepository<Item, UUID> {
 

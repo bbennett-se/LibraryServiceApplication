@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+//Specifies the requirements/constraints for an item request
 @Data
 public class ItemRequest {
 

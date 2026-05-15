@@ -5,6 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+//specifies the required variables for an item response
 @Data
 @Builder
 public class ItemResponse {
