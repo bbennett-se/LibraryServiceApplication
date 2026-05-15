@@ -54,6 +54,19 @@ public class ItemService {
         return itemRepository.findByTitleContainingIgnoreCase(title, pageable)
                 .map(this::toResponse);
     }
+    //TODO: Implement within Controller
+    @Transactional(readOnly = true)
+    public Page<ItemResponse> searchByAuthor(String author, Pageable pageable)  {
+        return itemRepository.findByAuthorContainingIgnoreCase(author, pageable)
+                .map(this::toResponse);
+    }
+
+    //TODO: Implement within Controlle
+    @Transactional(readOnly = true)
+    public Page<ItemResponse> searchByGenre(String genre, Pageable pageable)  {
+        return itemRepository.findByGenre(genre, pageable)
+                .map(this::toResponse);
+    }
 
     //updates the current information of an item, found via its UUID, based on a request
     public ItemResponse updateItem(UUID id, ItemRequest request) {
