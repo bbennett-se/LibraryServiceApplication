@@ -38,13 +38,22 @@ public class ItemController {
         return itemService.getItem(id);
     }
 
-    //GET all items
+    //TODO:Test Endpoint with genre/author
+    //GET all items according to specified parameters
     @GetMapping
     public Page<ItemResponse> getAllItems(
             @RequestParam(required = false) String title,
+            @RequestParam(required = false)String author,
+            @RequestParam(required = false)String genre,
             Pageable pageable) {
         if(title != null && !title.isBlank()) {
             return itemService.searchByTitle(title, pageable);
+        }
+        else if(author != null && !author.isBlank()) {
+            return itemService.searchByAuthor(author, pageable);
+        }
+        else if(genre != null && !genre.isBlank()) {
+            return itemService.searchByGenre(genre, pageable);
         }
         return itemService.getAllItems(pageable);
     }
