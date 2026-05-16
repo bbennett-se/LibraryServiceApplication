@@ -20,5 +20,8 @@ Thumbs.db
 .env
 *.env.local
 
+# Claude Code
+.claude/
+
 # Docker
 .docker/
