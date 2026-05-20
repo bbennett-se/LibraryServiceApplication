@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 //specifies the required variables for an item response
+
+//TODO: Convert to record rather than class
 @Data
 @Builder
 public class ItemResponse {
