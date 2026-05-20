@@ -43,6 +43,7 @@ public class Item {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    //TODO: switch variable to Instant rather than LocalDateTime for consistency
     @Column(name = "updated_at", nullable = false, updatable = false)
     private LocalDateTime updatedAt;
 
