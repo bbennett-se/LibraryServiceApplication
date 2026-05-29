@@ -1,3 +1,36 @@
 spring:
   application:
     name: circulation-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/circulation_db
+    username: ${DB_USERNAME:library}
+    password: ${DB_PASSWORD:library}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+server:
+  port: 8082
+
+library:
+  services:
+    catalog:
+      base-url: ${CATALOG_SERVICE_URL:http://localhost:8081}
+    user:
+      base-url: ${USER_SERVICE_URL:http://localhost:8083}
+  loan:
+    duration-days: ${LOAN_DURATION_DAYS:14}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
