@@ -18,6 +18,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+//TODO: Remove Getter/Setter Annotation; generate with alt+insert
 public class ItemCopy {
 
     @Id

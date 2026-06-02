@@ -18,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
+//TODO: Remove Getter/Setter Annotation; generate with alt+insert
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
