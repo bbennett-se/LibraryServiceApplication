@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-public interface LoanRepository extends JpaRepository {
+public interface LoanRepository extends JpaRepository<Loan, UUID> {
 
     Page<Loan> findByUserId(UUID userID, Pageable pageable);
 
